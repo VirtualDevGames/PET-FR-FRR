@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://fo186gn4l5s8"]
+
+[ext_resource type="Texture2D" uid="uid://h5rb1rdf16rg" path="res://Assets/Sprites/Objects/Heart.png" id="1_2j86q"]
+[ext_resource type="Texture2D" uid="uid://ikycjp7k08ot" path="res://Assets/Sprites/Objects/Pixel Food/Hunger.png" id="1_3kyua"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gexd1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h7v55"]
+texture = ExtResource("1_3kyua")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3kyua"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2j86q"]
+texture = ExtResource("1_2j86q")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+HungerBar/base_type = &"ProgressBar"
+HungerBar/styles/background = SubResource("StyleBoxEmpty_gexd1")
+HungerBar/styles/fill = SubResource("StyleBoxTexture_h7v55")
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_3kyua")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_2j86q")

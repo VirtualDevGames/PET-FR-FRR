@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://lrqxim11q33e"]
+
+[ext_resource type="Script" uid="uid://55dwf3da0162" path="res://Scenes/UI/Window Drag/window_drag.gd" id="1_xtcfy"]
+[ext_resource type="Texture2D" uid="uid://ccj0vlodi2doe" path="res://Assets/Sprites/Objects/Window Drag.png" id="2_i7w2y"]
+
+[node name="WindowDrag" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 16)
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 1
+script = ExtResource("1_xtcfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_i7w2y")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

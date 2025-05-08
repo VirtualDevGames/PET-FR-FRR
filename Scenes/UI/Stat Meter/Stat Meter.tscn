@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd2oqnbk4qn8w"]
+
+[ext_resource type="Theme" uid="uid://fo186gn4l5s8" path="res://Assets/Themes/UI Theme.tres" id="1_bxdut"]
+[ext_resource type="Script" uid="uid://cv3tgxcj3g5fl" path="res://Scenes/UI/Stat Meter/stat_meter.gd" id="2_mjkyh"]
+
+[node name="Stat Meter" type="ProgressBar"]
+layout_direction = 2
+offset_top = -14.5
+offset_right = 160.0
+offset_bottom = 17.5
+theme = ExtResource("1_bxdut")
+theme_type_variation = &"HungerBar"
+max_value = 5.0
+step = 1.0
+show_percentage = false
+script = ExtResource("2_mjkyh")
+metadata/_edit_use_anchors_ = true

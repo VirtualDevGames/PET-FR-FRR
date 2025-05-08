@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://21q4cjvofy02"]
+
+[ext_resource type="Script" uid="uid://1xf7pi0cn444" path="res://Scenes/Components/Drag Component/drag_component.gd" id="1_mf8pb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf8pb"]
+size = Vector2(8, 8)
+
+[node name="DragComponent" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+pivot_offset = Vector2(4, 4)
+mouse_filter = 1
+script = ExtResource("1_mf8pb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_mf8pb")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

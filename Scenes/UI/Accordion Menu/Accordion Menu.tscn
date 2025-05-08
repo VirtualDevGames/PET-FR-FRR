@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=3 uid="uid://tyhwasiqawyx"]
+
+[ext_resource type="Script" uid="uid://ce4mnfqgxmxqk" path="res://Scenes/UI/Accordion Menu/accordion_menu.gd" id="1_73nyu"]
+[ext_resource type="Script" uid="uid://ck40qqkphugkm" path="res://Scenes/UI/Accordion Menu/accordion_menu_panel.gd" id="2_sp3tm"]
+[ext_resource type="Texture2D" uid="uid://ccj0vlodi2doe" path="res://Assets/Sprites/Objects/Window Drag.png" id="3_xt8d1"]
+
+[node name="AccordionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_73nyu")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
+texture_normal = ExtResource("3_xt8d1")
+
+[node name="Panel" type="Panel" parent="." node_paths=PackedStringArray("button", "vbox_child")]
+clip_children = 1
+clip_contents = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 220.0
+script = ExtResource("2_sp3tm")
+button = NodePath("../TextureButton")
+vbox_child = NodePath("VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xt8d1")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xt8d1")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xt8d1")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xt8d1")
+stretch_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 36)
+zoom = Vector2(2, 2)
+
+[node name="Panel2" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(150, 0.1)
+layout_mode = 0
+offset_left = 20.0
+offset_right = 170.0
+offset_bottom = 20.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 76.0
+offset_bottom = 8.0
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xt8d1")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Panel2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xt8d1")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Panel2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xt8d1")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Panel2/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_xt8d1")
+stretch_mode = 2

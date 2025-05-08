@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjyjce5atldk"]
+
+[ext_resource type="Script" uid="uid://drdemlvf35r2t" path="res://Scenes/Game Objects/Pet Accessory/accessory.gd" id="1_let45"]
+[ext_resource type="Texture2D" uid="uid://dh8hfeemlou7y" path="res://Assets/Sprites/Objects/Pixel Food/Apple.png" id="2_luqll"]
+[ext_resource type="PackedScene" uid="uid://21q4cjvofy02" path="res://Scenes/Components/Drag Component/Drag Component.tscn" id="3_5fm8p"]
+
+[node name="Accessory" type="Node2D"]
+script = ExtResource("1_let45")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_luqll")
+
+[node name="DragComponent" parent="." instance=ExtResource("3_5fm8p")]
+scale = Vector2(1.9, 2)
+
+[editable path="DragComponent"]

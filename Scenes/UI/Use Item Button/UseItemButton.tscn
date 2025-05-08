@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b03on4vwuolop"]
+
+[ext_resource type="Script" uid="uid://dwhyimerjx1f0" path="res://Scenes/UI/Use Item Button/use_item_button.gd" id="1_g2dwx"]
+[ext_resource type="Texture2D" uid="uid://ci8y5pk5yjayq" path="res://Assets/Sprites/UI/Buttons_4x.png" id="1_qweqg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xs6g"]
+atlas = ExtResource("1_qweqg")
+region = Rect2(4, 4, 56, 56)
+
+[node name="UseButton" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.05
+anchor_bottom = 0.034
+offset_right = -0.600002
+offset_bottom = 33.968
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = SubResource("AtlasTexture_6xs6g")
+script = ExtResource("1_g2dwx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 47.0
+offset_bottom = 47.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = -30.0
+offset_right = 51.0
+offset_bottom = 5.0
+theme_override_font_sizes/font_size = 25
+text = "10"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
