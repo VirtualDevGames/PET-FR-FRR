@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2tw10y1gr3nk"]
+[gd_scene load_steps=25 format=3 uid="uid://c2tw10y1gr3nk"]
 
 [ext_resource type="Texture2D" uid="uid://b35rvdi7myyav" path="res://Assets/Sprites/Characters/DogE.png" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://os7kd1lq7h1q" path="res://Scenes/Game Manager.gd" id="1_jjvhh"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://h5rb1rdf16rg" path="res://Assets/Sprites/Objects/Heart.png" id="5_21xkr"]
 [ext_resource type="Texture2D" uid="uid://ikycjp7k08ot" path="res://Assets/Sprites/Objects/Pixel Food/Hunger.png" id="6_6bp64"]
 [ext_resource type="Texture2D" uid="uid://bw0trg16x2wti" path="res://Assets/Sprites/Objects/Pixel Food/coin.png" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://curv1o8ebr6ih" path="res://Scenes/Pet/Pet.tscn" id="9_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://c7okl13l71ojw" path="res://Assets/Sprites/Rooms/example room.png" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://lrqxim11q33e" path="res://Scenes/UI/Window Drag/WindowDrag.tscn" id="11_d1ilt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bo1nx"]
@@ -38,6 +40,11 @@ size = Vector2(16.002, 12.1834)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3802"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d1ilt"]
+vertices = PackedVector2Array(1008.23, 419.992, 1131.67, 633.039, 20.5469, 635.953, 148.703, 419)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(143, 409, 1014, 410, 1149, 643, 3, 646)])
+
 [node name="Main" type="Node2D" node_paths=PackedStringArray("hunger_timer", "hunger_timer_pbar", "hunger_timer_label", "happiness_timer", "happiness_timer_pbar", "happiness_timer_label", "coins_label", "pet_ex")]
 script = ExtResource("1_jjvhh")
 hunger_timer = NodePath("Stats & Timers/Hunger Timer/Hunger Timer")
@@ -50,6 +57,7 @@ coins_label = NodePath("Coins/Coins label")
 pet_ex = NodePath("DogE")
 
 [node name="DogE" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(557, 490)
 scale = Vector2(10.9986, 10.9986)
 texture = SubResource("AtlasTexture_bo1nx")
@@ -231,6 +239,18 @@ offset_left = 1100.0
 offset_right = 1116.0
 offset_bottom = 16.0
 scale = Vector2(3.23784, 3.23784)
+
+[node name="Pet" parent="." instance=ExtResource("9_ynf5e")]
+position = Vector2(566, 563)
+scale = Vector2(11, 11)
+
+[node name="ExampleRoom" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(575, 323)
+texture = ExtResource("10_hptm8")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_d1ilt")
 
 [connection signal="timeout" from="Stats & Timers/Hunger Timer/Hunger Timer" to="." method="_on_hunger_t_imer_timeout"]
 [connection signal="timeout" from="Stats & Timers/Hunger Timer/Hunger Timer" to="." method="_on_hunger_timer_timeout"]

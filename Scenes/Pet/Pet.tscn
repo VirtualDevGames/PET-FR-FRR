@@ -1,10 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://curv1o8ebr6ih"]
+[gd_scene load_steps=6 format=3 uid="uid://curv1o8ebr6ih"]
 
 [ext_resource type="SpriteFrames" uid="uid://1qt5716gvmj0" path="res://Assets/Pet Animations/Fox_Animations.tres" id="1_vo40y"]
+[ext_resource type="Script" uid="uid://bff2lydm8jow4" path="res://Scenes/Pet/pet.gd" id="1_vsuot"]
+[ext_resource type="Script" uid="uid://v4nb6wakm42u" path="res://Scripts/State Machine/StateMachine.gd" id="3_eqsao"]
+[ext_resource type="Script" uid="uid://be06rbjt5rysb" path="res://Scripts/State Machine/PetIdle.gd" id="4_vimym"]
 
-[node name="Pet" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqsao"]
 
-[node name="DogE AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Pet" type="CharacterBody2D" node_paths=PackedStringArray("anim_sprite", "navigaion_agent")]
+script = ExtResource("1_vsuot")
+anim_sprite = NodePath("AnimatedSprite2D")
+navigaion_agent = NodePath("NavigationAgent2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
 sprite_frames = ExtResource("1_vo40y")
-animation = &"bark"
-frame_progress = 0.390869
+animation = &"walk"
+frame_progress = 0.093059
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_eqsao")
+initial_state = NodePath("PetIdle")
+
+[node name="PetIdle" type="Node" parent="StateMachine"]
+script = ExtResource("4_vimym")
+anim_name_to_play = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_eqsao")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true

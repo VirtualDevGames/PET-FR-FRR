@@ -3,6 +3,9 @@ class_name State
 
 signal Transitioned
 
+var pet : Pet
+@export var anim_name_to_play : String
+
 func Enter():
     pass
 

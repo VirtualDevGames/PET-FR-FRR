@@ -99,7 +99,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_17pc8")
 }],
-"loop": true,
+"loop": false,
 "name": &"bark",
 "speed": 5.0
 }, {
@@ -160,5 +160,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 6.0
+"speed": 7.0
 }]
