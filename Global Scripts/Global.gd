@@ -5,10 +5,15 @@ signal StatUpdated(type : StatType, value : int)
 
 var draggable_scene = preload("res://Scenes/Components/Drag Component/Drag Component.tscn")
 
+var hunger_sprite = preload("D:/GodotProjects/PET FR FRR/Assets/Sprites/Objects/Pixel Food/Drumstick.png")
+var happiness_sprite = preload("D:/GodotProjects/PET FR FRR/Assets/Sprites/Objects/Heart.png")
+var bathroom_sprite = preload("D:/GodotProjects/PET FR FRR/Assets/Sprites/Objects/Bathroom.png")
+
 enum StatType {
     HUNGER,
     HAPPINESS,
     HEALTH,
+	BATHROOM,
     COINS,
 }
 

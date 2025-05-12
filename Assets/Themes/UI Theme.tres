@@ -1,7 +1,16 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://fo186gn4l5s8"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://fo186gn4l5s8"]
 
 [ext_resource type="Texture2D" uid="uid://h5rb1rdf16rg" path="res://Assets/Sprites/Objects/Heart.png" id="1_2j86q"]
 [ext_resource type="Texture2D" uid="uid://ikycjp7k08ot" path="res://Assets/Sprites/Objects/Pixel Food/Hunger.png" id="1_3kyua"]
+[ext_resource type="Texture2D" uid="uid://c0havbpeol1ln" path="res://Assets/Sprites/Objects/Toilet.png" id="1_gexd1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7v55"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2csl"]
+texture = ExtResource("1_gexd1")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 32, 32)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gexd1"]
 
@@ -19,6 +28,9 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
 [resource]
+Bathroom/base_type = &"ProgressBar"
+Bathroom/styles/background = SubResource("StyleBoxEmpty_h7v55")
+Bathroom/styles/fill = SubResource("StyleBoxTexture_b2csl")
 HungerBar/base_type = &"ProgressBar"
 HungerBar/styles/background = SubResource("StyleBoxEmpty_gexd1")
 HungerBar/styles/fill = SubResource("StyleBoxTexture_h7v55")

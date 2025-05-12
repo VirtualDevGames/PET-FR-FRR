@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dn0fyknh74r8r" path="res://Scripts/State Machine/PetSleep.gd" id="6_oeasc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqsao"]
+size = Vector2(18, 13)
 
 [node name="Pet" type="CharacterBody2D" node_paths=PackedStringArray("anim_sprite", "navigaion_agent")]
 script = ExtResource("1_vsuot")
@@ -17,8 +18,7 @@ navigaion_agent = NodePath("NavigationAgent2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = ExtResource("1_vo40y")
-animation = &"sleep"
-frame_progress = 0.57011
+animation = &"bark"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_eqsao")
@@ -38,7 +38,7 @@ anim_name_to_play = "sleep"
 metadata/_custom_type_script = "uid://dn0fyknh74r8r"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(-1, -5.5)
 shape = SubResource("RectangleShape2D_eqsao")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
