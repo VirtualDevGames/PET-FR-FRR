@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://curv1o8ebr6ih"]
+[gd_scene load_steps=8 format=3 uid="uid://curv1o8ebr6ih"]
 
 [ext_resource type="SpriteFrames" uid="uid://1qt5716gvmj0" path="res://Assets/Pet Animations/Fox_Animations.tres" id="1_vo40y"]
 [ext_resource type="Script" uid="uid://bff2lydm8jow4" path="res://Scenes/Pet/pet.gd" id="1_vsuot"]
 [ext_resource type="Script" uid="uid://v4nb6wakm42u" path="res://Scripts/State Machine/StateMachine.gd" id="3_eqsao"]
-[ext_resource type="Script" uid="uid://be06rbjt5rysb" path="res://Scripts/State Machine/PetIdle.gd" id="4_vimym"]
+[ext_resource type="Script" uid="uid://be06rbjt5rysb" path="res://Scripts/State Machine/PetWander.gd" id="4_vimym"]
+[ext_resource type="Script" uid="uid://bmmkqdsr2pxay" path="res://Scripts/State Machine/PetIdle.gd" id="5_vimym"]
+[ext_resource type="Script" uid="uid://dn0fyknh74r8r" path="res://Scripts/State Machine/PetSleep.gd" id="6_oeasc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqsao"]
 
@@ -15,16 +17,25 @@ navigaion_agent = NodePath("NavigationAgent2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = ExtResource("1_vo40y")
-animation = &"walk"
-frame_progress = 0.093059
+animation = &"sleep"
+frame_progress = 0.57011
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_eqsao")
 initial_state = NodePath("PetIdle")
 
-[node name="PetIdle" type="Node" parent="StateMachine"]
+[node name="PetWander" type="Node" parent="StateMachine"]
 script = ExtResource("4_vimym")
 anim_name_to_play = "walk"
+
+[node name="PetIdle" type="Node" parent="StateMachine"]
+script = ExtResource("5_vimym")
+anim_name_to_play = "idle"
+
+[node name="PetSleep" type="Node" parent="StateMachine"]
+script = ExtResource("6_oeasc")
+anim_name_to_play = "sleep"
+metadata/_custom_type_script = "uid://dn0fyknh74r8r"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

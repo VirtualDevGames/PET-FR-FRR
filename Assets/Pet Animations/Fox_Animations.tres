@@ -143,7 +143,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"sleep",
-"speed": 0.5
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
