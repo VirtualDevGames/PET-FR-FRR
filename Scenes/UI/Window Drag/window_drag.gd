@@ -2,7 +2,7 @@ extends Control
 
 ########################################
 # README: 
-# Used to simulate a window ribbon for dragging
+# Used to simulate a ribbon for dragging
 # the window.
 #
 ########################################

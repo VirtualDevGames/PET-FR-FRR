@@ -15,7 +15,7 @@ func _ready():
 func expand():
 	is_expanded = !is_expanded
 
-func _process(delta):
+func _process(_delta):
 	var current_height = custom_minimum_size.y
 	var goal_height = target_height if is_expanded else collapsed_height
 

@@ -10,13 +10,13 @@ class_name MarbleBag
 var full_bag: Array
 var _current_bag: Array
 
-func MarbleBag(_contents: Array):
+func _init(_contents: Array):
 	full_bag = _contents
 
 func Reset():
 	_current_bag.clear()
 	for item in full_bag:
-		_current_bag.insert(randi_range(0, _current_bag.size() + 1), item)
+		_current_bag.insert(randi_range(0, _current_bag.size()), item)
 
 func Next():
 	if _current_bag.is_empty():

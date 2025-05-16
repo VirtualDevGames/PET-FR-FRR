@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwy13aq8ri3lc"]
+
+[ext_resource type="Texture2D" uid="uid://ci8y5pk5yjayq" path="res://Assets/Sprites/UI/Buttons_4x.png" id="1_yc13y"]
+[ext_resource type="Script" uid="uid://eyd7ttukp33j" path="res://Scenes/UI/Accordion Menu 2/Accordion Menu Button.gd" id="2_0ej0e"]
+[ext_resource type="PackedScene" uid="uid://ba0x4jrd4ya7y" path="res://Scenes/UI/Accordion Menu 2/Accordion Menu Item Button.tscn" id="3_0ej0e"]
+
+[sub_resource type="Theme" id="Theme_4c8lx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ej0e"]
+atlas = ExtResource("1_yc13y")
+region = Rect2(4, 0, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmi76"]
+atlas = ExtResource("1_yc13y")
+region = Rect2(68, 0, 56, 56)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hmi76"]
+load_path = "res://.godot/imported/Buttons_4x.png-b29d0cd82c8097e4ae27b10ae7634db7.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c8lx"]
+atlas = SubResource("CompressedTexture2D_hmi76")
+region = Rect2(4, 0, 56, 56)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ej0e"]
+
+[node name="Accordion Menu Button" type="TextureButton" node_paths=PackedStringArray("buttons_parent")]
+offset_left = 88.0
+offset_top = 39.0
+offset_right = 120.0
+offset_bottom = 71.0
+theme = SubResource("Theme_4c8lx")
+texture_normal = SubResource("AtlasTexture_0ej0e")
+texture_pressed = SubResource("AtlasTexture_hmi76")
+texture_hover = SubResource("AtlasTexture_4c8lx")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_0ej0e")
+buttons_parent = NodePath("Panel")
+lerp_speed = 0.02
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+clip_children = 1
+clip_contents = true
+layout_mode = 0
+offset_top = 25.0
+offset_right = 32.0
+offset_bottom = 205.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0ej0e")
+
+[node name="TextureButton" parent="Panel" instance=ExtResource("3_0ej0e")]
+layout_mode = 0
+offset_top = -25.0
+offset_bottom = 7.0
+
+[node name="TextureButton2" parent="Panel" instance=ExtResource("3_0ej0e")]
+layout_mode = 0
+offset_top = -25.0
+offset_bottom = 7.0
+
+[node name="TextureButton3" parent="Panel" instance=ExtResource("3_0ej0e")]
+layout_mode = 0
+offset_top = -25.0
+offset_bottom = 7.0
+
+[node name="TextureButton4" parent="Panel" instance=ExtResource("3_0ej0e")]
+layout_mode = 0
+offset_top = -25.0
+offset_bottom = 7.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(17, 88)
+zoom = Vector2(3, 3)
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

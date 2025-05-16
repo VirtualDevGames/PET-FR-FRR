@@ -49,8 +49,8 @@ var coins : Stat
 func _ready():
 	Global.UsedItem.connect(Callable(self, "_on_UsedStatItem"))
 
-	hunger = Stat.new(Global.StatType.HUNGER, 5, 0, 5)
-	happiness = Stat.new(Global.StatType.HAPPINESS, 5, 0, 5)
+	hunger = Stat.new(Global.StatType.HUNGER, 5, 0, 4)
+	happiness = Stat.new(Global.StatType.HAPPINESS, 5, 0, 3)
 	health = Stat.new(Global.StatType.HEALTH, 5, 0, 5)
 	bathroom = Stat.new(Global.StatType.BATHROOM, 5, 0, 5)
 	coins = Stat.new(Global.StatType.COINS, 99, 0, 0)

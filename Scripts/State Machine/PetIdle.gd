@@ -2,6 +2,11 @@ extends State
 class_name PetIdle
 
 var idle_timer : Timer
+var state_mb : MarbleBag
+var state_mb_array = ["PetWander", "PetWander", "PetWander", "PetWander", "PetSleep"]
+
+func _ready():
+	state_mb = MarbleBag.new(state_mb_array)
 
 func Enter():
 	pet.anim_sprite.play(anim_name_to_play)
@@ -20,7 +25,4 @@ func Physics_Update(_delta ):
 	pass
 
 func _on_idle_timer_timeout():
-	if randi_range(0, 1) == 1:
-		Transitioned.emit(self, "PetWander")
-	else:
-		Transitioned.emit(self, "PetSleep")
+	Transitioned.emit(self, state_mb.Next())

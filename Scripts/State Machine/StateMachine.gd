@@ -8,7 +8,7 @@ var current_state : State
 
 func _ready():
 	if !initial_state:
-		printerr("NO INITIAL STATE ON STATE MACHINE IN: " + name)
+		push_error("NO INITIAL STATE ON STATE MACHINE IN: " + name)
 
 	for child in get_children():
 		if child is State:

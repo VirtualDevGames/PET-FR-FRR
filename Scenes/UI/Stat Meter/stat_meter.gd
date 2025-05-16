@@ -43,4 +43,3 @@ func _on_StatUpdated(_type : Global.StatType, _value : int):
 	if _type == type:
 		progress_bar.value = _value
 		label.text = str(_value)
-	print("value " + str(progress_bar.value))
